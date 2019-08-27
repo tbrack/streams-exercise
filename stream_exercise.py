@@ -1,4 +1,11 @@
-
+"""
+Project Name: stream_exercise
+File Name: stream_exercise.py
+Author: Travis Brackney
+Class: Python 230 - Self paced online
+Date Created 8/26/2019
+Python Version: 3.7.2
+"""
 
 class StreamProcessor(object):
     """
@@ -6,14 +13,14 @@ class StreamProcessor(object):
         1. You initialize an instance with a stream of digits
           (AKA: file-like object, instance of StringIO), and
           store it as an instance variable.
-        
+
           eg: f = io.StringIO("234761640930110349378289194")
               my_stream_processor = MyStreamProcessor(f)
-              
+
         2. You call a `process` method of my_stream_processor.
-        
+
           This method:
-          
+
             1. Reads two digits at a time from the beginning of the stream
             2. Converts the two digits into a number, and adds that number
                to a running total.
@@ -48,7 +55,7 @@ class StreamProcessor(object):
     def process(self):
         """
         TODO: Implement the `process` method, as described above.
-        
+
         :return: int
         """
 
@@ -58,10 +65,17 @@ class StreamProcessor(object):
 
         # TODO: WRITE CODE HERE:
 
+        while count < 10 and total < 200:
+            num = self._stream.read(2)
+            if len(num) < 2:
+                break
+
+            count += 1
+            total += int(num)
+
         # Just some example syntax, you can read two digits from the head of the
         # stream using the following code:
         #
         # digits = self._stream.read(2)
-
 
         return count
